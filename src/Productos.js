@@ -1,64 +1,69 @@
-import React, {Component} from "react";
+import React, {useState, useEffect} from "react";
 import Producto from "./Producto";
 
-class Productos extends Component{
-    constructor(){
-        super(   )
-        this.state={
-            listadoProductos: [
-                {
-                    nombre: "Moto G",
-                    precio: "1000",
-                    descripcion: "Celular choto",
-                },
-                {
-                    nombre: "Moto X",
-                    precio: "1500", 
-                    descripcion: "Celular mediocre"
-                },
-                {
-                    nombre: "Iphone",
-                    precio: "2000",
-                    descripcion: "Celular deluxex "
-                }
-            ],
-            titulo: "Listado de productos en oferta"
+function Productos(){
 
+    const [listadoProductos, setListadoProductos]=useState([
+        {
+            nombre: "Samsung",
+            precio: "1000",
+            descripcion: "Celular berreta "
+             
+        },
+        {
+            nombre: "Samsung Mega",
+            precio: "1500",
+            descripcion: "Celular maso"
+             
+        },
+        {
+            nombre: "Iphone",
+            precio: "2000",
+            descripcion: "Celular deluxex "
+             
         }
+    ])
+    const [titulo, setTitulo]=useState("Listado Productos oferta")
+    const [loading, setLoading]=useState(false)
+
+    const handleClick=()=>{
+        
+            setTitulo("Listado productos modificado")
+        
     }
 
-    handleClick=()=>{
-        this.setState({
-            titulo:"Listado productos modificado"
-        })
-    }
-
-    handleClickFiltrarProducto=()=>{
-        this.setState({
-            listadoProductos: [
+    const handleClickFiltrarProducto=()=>{
+       
+            setListadoProductos([
              
                 {
                     nombre: "Iphone",
                     precio: "2000",
                     descripcion: "Celular deluxex "
-                    borrame
+                     
                 }
-            ]
-        })
+            ])
+        
     }
 
-    render(){ 
-        
-   
+    if(loading){
+        return(
+        <div>
+            Cargando...
+        </div>
+        )
+    }else{
         return(
             <div>  
-                <h4>{this.state.titulo}</h4>
-                {this.state.listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.nombre} precio={listadoProducto.precio} descripcion = {listadoProducto.descripcion}/>)}
-                <button onClick={this.handleClick}>Cambiar titulo</button>
-                <button onClick={this.handleClickFiltrarProducto}>Filtrar producto</button>
+                <h4>{titulo}</h4>
+                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.nombre} precio={listadoProducto.precio} descripcion = {listadoProducto.descripcion}/>)}
+                <button onClick={handleClick}>Cambiar titulo</button>
+                <button onClick={handleClickFiltrarProducto}>Filtrar producto</button>
             </div>
         )
-    }  
+    }
 }
+
+
 
 export default Productos
