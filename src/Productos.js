@@ -41,6 +41,7 @@ class Productos extends Component{
                     nombre: "Iphone",
                     precio: "2000",
                     descripcion: "Celular deluxex "
+                    borrame
                 }
             ]
         })
@@ -57,7 +58,7 @@ class Productos extends Component{
                 <button onClick={this.handleClickFiltrarProducto}>Filtrar producto</button>
             </div>
         )
-    } 
+    }  
 }
 
 export default Productos
