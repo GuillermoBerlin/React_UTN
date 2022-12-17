@@ -3,49 +3,26 @@ import Producto from "./Producto";
 
 function Productos(){
 
-    const [listadoProductos, setListadoProductos]=useState([
-        {
-            nombre: "Samsung",
-            precio: "1000",
-            descripcion: "Celular berreta "
-             
-        },
-        {
-            nombre: "Samsung Mega",
-            precio: "1500",
-            descripcion: "Celular maso"
-             
-        },
-        {
-            nombre: "Iphone",
-            precio: "2000",
-            descripcion: "Celular deluxex "
-             
-        }
-    ])
+    const [listadoProductos, setListadoProductos]=useState()
     const [titulo, setTitulo]=useState("Listado Productos oferta")
     const [loading, setLoading]=useState(false)
 
-    const handleClick=()=>{
-        
-            setTitulo("Listado productos modificado")
-        
-    }
 
-    const handleClickFiltrarProducto=()=>{
-       
-            setListadoProductos([
-             
-                {
-                    nombre: "Iphone",
-                    precio: "2000",
-                    descripcion: "Celular deluxex "
-                     
-                }
-            ])
-        
-    }
+    useEffect(
+        ()=>{
+            fetch('https://dummyjson.com/products')
+            .then(res => res.json())
+            .then(data =>{ 
+                setListadoProductos(data.products)
+                console.log(listadoProductos)
+            })    
+            
+            
+        }, []
+    )
 
+    
+/*
     if(loading){
         return(
         <div>
@@ -57,11 +34,11 @@ function Productos(){
             <div>  
                 <h4>{titulo}</h4>
                 {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.nombre} precio={listadoProducto.precio} descripcion = {listadoProducto.descripcion}/>)}
-                <button onClick={handleClick}>Cambiar titulo</button>
-                <button onClick={handleClickFiltrarProducto}>Filtrar producto</button>
+                
             </div>
         )
     }
+*/    
 }
 
 
