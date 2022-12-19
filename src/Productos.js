@@ -3,26 +3,24 @@ import Producto from "./Producto";
 
 function Productos(){
 
-    const [listadoProductos, setListadoProductos]=useState()
-    const [titulo, setTitulo]=useState("Listado Productos oferta")
+    const [listadoProductos, setListadoProductos]=useState([])
     const [loading, setLoading]=useState(false)
 
 
     useEffect(
         ()=>{
             fetch('https://dummyjson.com/products')
-            .then(res => res.json())
-            .then(data =>{ 
-                setListadoProductos(data.products)
-                console.log(listadoProductos)
-            })    
+            .then((response) => response.json())
+            .then((data) => setListadoProductos(data.products));   
             
             
         }, []
     )
 
+    console.log(listadoProductos)
+
     
-/*
+
     if(loading){
         return(
         <div>
@@ -31,14 +29,16 @@ function Productos(){
         )
     }else{
         return(
+            
             <div>  
-                <h4>{titulo}</h4>
-                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.nombre} precio={listadoProducto.precio} descripcion = {listadoProducto.descripcion}/>)}
+                <h4>Productos</h4>
+                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.title} precio={listadoProducto.price} />)}
                 
-            </div>
+            </div> 
+            
         )
     }
-*/    
+    
 }
 
 
