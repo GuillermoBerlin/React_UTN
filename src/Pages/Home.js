@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Productos from "./Productos";
+import Productos from "../Components/Productos";
 
 class Home extends Component{
     render(){ 
