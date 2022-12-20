@@ -6,7 +6,7 @@ class Home extends Component{
         return(
             <div>
                 <div>  
-                    <p>HOME</p>
+                    
                     
                 </div>
                 <div>
