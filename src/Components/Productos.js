@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
+import { getAllProductos } from "../Service/productosServices";
 import Producto from "./Producto";
 
 function Productos(){
 
     const [listadoProductos, setListadoProductos]=useState([])
     const [loading, setLoading]=useState(true)
-    const [buscar, setBuscar]=useState("ipad")
+    
+    
     
 
 
@@ -13,8 +15,8 @@ function Productos(){
         ()=>{
             const request = async ()=>{
             try{
-                const data = await fetch('https://api.mercadolibre.com/sites/MLA/search?q='+buscar).then(res=>res.json())
-                setListadoProductos(data.results);
+                const response = await getAllProductos()
+                setListadoProductos(response.data.results);
                     
                 setLoading(false)
                 console.log(listadoProductos)
@@ -24,14 +26,10 @@ function Productos(){
         }
         request()
             
-        }, [buscar]
+        }, []
     )
 
-    const filtrar = () => {
-        setBuscar("sony")
-    }
-    
- 
+   
     
 
     if(loading){
@@ -45,8 +43,8 @@ function Productos(){
             
             <div>  
                 <h4>Productos</h4>
-                <button onClick={filtrar}>Dame Sony</button>
-                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.title} precio={listadoProducto.price} />)}
+                
+                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.title} precio={listadoProducto.price} id={listadoProducto.id}/>)}
                 
             </div> 
             
