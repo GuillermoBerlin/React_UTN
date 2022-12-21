@@ -8,9 +8,6 @@ function Productos(){
     const [loading, setLoading]=useState(true)
     
     
-    
-
-
     useEffect(
         ()=>{
             const request = async ()=>{
@@ -29,9 +26,6 @@ function Productos(){
         }, []
     )
 
-   
-    
-
     if(loading){
         return(
         <div>
@@ -44,7 +38,7 @@ function Productos(){
             <div>  
                 <h4>Productos</h4>
                 
-                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.title} precio={listadoProducto.price} id={listadoProducto.id}/>)}
+                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.title} precio={listadoProducto.price} id={listadoProducto.id} thumbnail={listadoProducto.thumbnail}/>)}
                 
             </div> 
             

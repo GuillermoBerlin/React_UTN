@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 function Producto(props) {
    
-    const {nombre, precio,id} = props
+    const {nombre, precio,id, thumbnail} = props
         
         return(
             <div>   
                 
                 <div>
+                    <img src={thumbnail}></img>
                     <p>{nombre}</p>
                     <p>{precio}</p>
                     <button>Comprame</button>
@@ -18,5 +19,5 @@ function Producto(props) {
         )
     
 }
-
+ 
 export default Producto 
