@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import Input from "../Components/Input"
 import {useForm} from "react-hook-form"
+import Button from 'react-bootstrap/Button';
 
 function Registro(){
 
@@ -35,7 +36,8 @@ function Registro(){
                     <label>Contraseña</label>
                     <input type="password" {...register("password")} />
                 </div>
-                <button type="submit ">Registrarme</button>
+                <Button variant="primary" type="submit">Registrarme</Button>{' '}
+                
             </form>
         </>
     )

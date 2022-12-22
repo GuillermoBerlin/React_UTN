@@ -1,8 +1,11 @@
 import React, {Component} from "react";
 import Productos from "../Components/Productos";
+import firebase from "../Config/firebase"
 
-class Home extends Component{
-    render(){ 
+function Home(){
+
+    console.log("FIRE BASSE", firebase)
+
         return(
             <div>
                 <div>  
@@ -14,7 +17,7 @@ class Home extends Component{
                 </div>
             </div>    
         )
-    }
+    
 }
 
 export default Home
