@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import Input from "../Components/Input"
 import {useForm} from "react-hook-form"
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 function Registro(){
 
@@ -18,27 +19,32 @@ function Registro(){
    
     return(
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label>Nombre</label>
-                    <input type="text" {...register("nombre", {required: true})} />
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control type="text" {...register("nombre", {required: true})} />
                     {errors.nombre && <span>Amigo this field is required</span>}
-                </div>
-                <div>
-                    <label>Apellido</label>
-                    <input type="text" {...register("apellido")} />
-                </div>
-                <div>
-                    <label>Email</label>
-                    <input type="email" {...register("email")} />
-                </div>
-                <div>
-                    <label>Contraseña</label>
-                    <input type="password" {...register("password")} />
-                </div>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Apellido</Form.Label>
+                    <Form.Control type="text" {...register("apellido", {required: true})} />
+                    {errors.apellido && <span>Amigo this field is required</span>}
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" {...register("email", {required: true})} />
+                    {errors.email && <span>Amigo this field is required</span>}
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Contraseña</Form.Label>
+                    <Form.Control type="password" {...register("password", {required: true})} />
+                    {errors.contraseña && <span>Amigo this field is required</span>}
+                </Form.Group>
+               
                 <Button variant="primary" type="submit">Registrarme</Button>{' '}
                 
-            </form>
+            </Form>
+            
         </>
     )
 }
