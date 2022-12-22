@@ -1,30 +1,41 @@
 import React, {useState} from "react"
 import Input from "../Components/Input"
+import {useForm} from "react-hook-form"
 
 function Registro(){
 
-    const [form, setForm] = useState({nombre:"",apellido:"", email:"", password:""})
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const handleChange=(event)=>{
         const name = event.target.name
         const value = event.target.value
-        setForm({...form, [name]:value})
-        
     }
-
-        const handleSubmit=(event)=>{
-            console.log(form)
-            event.preventDefault()
+   
+        const onSubmit=(data)=>{
+            console.log(data)
         }
    
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <Input label="nombre" name="nombre" change={handleChange} />
-                <Input label="apellido" name="apellido" change={handleChange} />
-                <Input label="email" name="email" change={handleChange} type="email"/>
-                <Input label="contraseña" name="password" change={handleChange} type="password"/>
-                <button type="submit">Registrarme</button>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" {...register("nombre", {required: true})} />
+                    {errors.nombre && <span>Amigo this field is required</span>}
+                </div>
+                <div>
+                    <label>Apellido</label>
+                    <input type="text" {...register("apellido")} />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" {...register("email")} />
+                </div>
+                <div>
+                    <label>Contraseña</label>
+                    <input type="password" {...register("password")} />
+                </div>
+                <button type="submit ">Registrarme</button>
             </form>
         </>
     )
