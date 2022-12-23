@@ -1,21 +1,33 @@
 import React, {useState} from "react"
-import Input from "../Components/Input"
+import firebase from "../Config/firebase"
 import {useForm} from "react-hook-form"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 
+
 function Registro(){
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const handleChange=(event)=>{
-        const name = event.target.name
-        const value = event.target.value
-    }
-   
-        const onSubmit=(data)=>{
-            console.log(data)
+    const onSubmit= async(data)=>{
+        
+        try{
+            const responseUser = await firebase.auth.createUserWithEmailAndPassword(data.email, data.password)
+            console.log("responseUser", responseUser)
+            if(responseUser.user.uid){
+                const document = await firebase.db.collection("usuarios")
+                .add({
+                    name: data.nombre,
+                    lastname: data.apellido,
+                    userId: responseUser.user.uid
+                })
+                console.log("document", document)
+            } 
+        }catch(e){
+            console.log(e)
         }
+        
+    }
    
     return(
         <>
