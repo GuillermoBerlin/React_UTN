@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { getByIdProductos } from "../Service/productosServices"
 import { useState, useEffect } from "react"
 
+
 function Detalle(){
     const {id} = useParams()
     const [producto, setProducto] = useState({})

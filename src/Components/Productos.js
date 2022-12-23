@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { getAllProductos } from "../Service/productosServices";
 import Producto from "./Producto";
+import Row from 'react-bootstrap/Row'
+
 
 function Productos(){
 
@@ -38,7 +40,9 @@ function Productos(){
             <div>  
                 <h4>Productos</h4>
                 
+                <Row>
                 {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.title} precio={listadoProducto.price} id={listadoProducto.id} thumbnail={listadoProducto.thumbnail}/>)}
+                </Row>
                 
             </div> 
             

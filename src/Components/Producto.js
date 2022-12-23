@@ -1,21 +1,32 @@
-import React, {Component} from "react";
+ 
 import { Link } from "react-router-dom";
+import {Card, Button, Col} from 'react-bootstrap'
+
+const styles = {
+    img: {
+        width:"100%",
+        
+    }
+}
 
 function Producto(props) {
    
     const {nombre, precio,id, thumbnail} = props
+
         
         return(
-            <div>   
-                
-                <div>
-                    <img src={thumbnail}></img>
-                    <p>{nombre}</p>
-                    <p>{precio}</p>
-                    <button>Comprame</button>
-                    <Link to={"/producto/"+id}>Ver Detalle</Link>
-                </div>
-            </div>
+            <>  
+            <Col>
+                <Card style={{ width: '18rem' }} className="text-center m-4">
+                    <Card.Img className="text-center" variant="top" src={thumbnail} style={styles.img} />
+                    <Card.Body className="text-center">
+                        <Card.Title >{nombre}</Card.Title>
+                        <Card.Text>${precio}</Card.Text>
+                        <Button as={Link} to={"/producto/"+id} variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                </Card>
+            </Col>    
+            </>
         )
     
 }
