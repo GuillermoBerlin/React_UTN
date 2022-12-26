@@ -12,7 +12,7 @@ function Detalle(){
             const request = async ()=>{
             try{
                 const response = await getByIdProductos(id)
-                setProducto(response.data)
+                setProducto(response)
                 
             }catch(e){
                 console.log(e)
@@ -25,7 +25,9 @@ function Detalle(){
     
     return(
          <>
-            <p>{producto.title}</p>
+            <p>{producto.data().name}</p>
+            <p>{producto.data().price}</p>
+            <p>{producto.data().description}</p>
         </>
     )
 }

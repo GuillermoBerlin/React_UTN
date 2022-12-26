@@ -15,8 +15,7 @@ function Productos(){
             const request = async ()=>{
             try{
                 const response = await getAllProductos()
-                setListadoProductos(response.data.results);
-                    
+                setListadoProductos(response);
                 setLoading(false)
                 console.log(listadoProductos)
             }catch(e){
@@ -41,7 +40,7 @@ function Productos(){
                 <h4>Productos</h4>
                 
                 <Row>
-                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.title} precio={listadoProducto.price} id={listadoProducto.id} thumbnail={listadoProducto.thumbnail}/>)}
+                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.data().name} precio={listadoProducto.data().price} id={listadoProducto.id}/>)}
                 </Row>
                 
             </div> 
@@ -50,7 +49,5 @@ function Productos(){
     }
     
 }
-
-
 
 export default Productos

@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import {Card, Button, Col} from 'react-bootstrap'
 
+
 const styles = {
     img: {
         width:"100%",
@@ -13,6 +14,8 @@ function Producto(props) {
    
     const {nombre, precio,id, thumbnail} = props
 
+
+
         
         return(
             <>  
@@ -22,7 +25,9 @@ function Producto(props) {
                     <Card.Body className="text-center">
                         <Card.Title >{nombre}</Card.Title>
                         <Card.Text>${precio}</Card.Text>
-                        <Button as={Link} to={"/producto/"+id} variant="primary">Go somewhere</Button>
+                        <Button as={Link} to={"/producto/"+id} variant="primary">Detalles</Button>
+                        <Button as={Link} to={"/productos/modificar/"+id} variant="primary">Modificar</Button>
+                        
                     </Card.Body>
                 </Card>
             </Col>    
