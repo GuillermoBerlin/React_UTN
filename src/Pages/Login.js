@@ -3,7 +3,7 @@ import firebase from "../Config/firebase"
 import {useForm} from "react-hook-form"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-
+ 
 
 function Login(){
 
@@ -13,7 +13,7 @@ function Login(){
         
         try{
             const responseUser = await firebase.auth.signInWithEmailAndPassword(data.email, data.password)
-            console.log("responseUser", responseUser)
+            console.log("responseUser", responseUser )
         }catch(e){
             console.log(e)
         }
