@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useEffect} from "react"
 import firebase from "../Config/firebase"
 import {useForm} from "react-hook-form"
 import Button from 'react-bootstrap/Button';
@@ -43,7 +43,7 @@ function ProductosModificar(){
         const document = await firebase.db.doc("productos/"+id)
         .delete()
     }
-   
+      
     return(
         <>
             <Button type="submit" variant="danger" onClick={handleDelete}>Eliminar</Button>

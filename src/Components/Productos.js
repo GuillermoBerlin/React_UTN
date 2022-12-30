@@ -17,7 +17,7 @@ function Productos(){
                 const response = await getAllProductos()
                 setListadoProductos(response);
                 setLoading(false)
-                console.log(listadoProductos)
+                
             }catch(e){
                 console.log(e)
             }    
@@ -27,27 +27,27 @@ function Productos(){
         }, []
     )
 
-    if(loading){
-        return(
-        <div>
-            Cargando...
-        </div>
-        )
-    }else{
-        return(
-            
+  
+    return(
             <div>  
-                <h4>Productos</h4>
-                
-                <Row>
-                {listadoProductos.map(listadoProducto=><Producto nombre= {listadoProducto.data().name} precio={listadoProducto.data().price} id={listadoProducto.id}/>)}
-                </Row>
-                
-            </div> 
-            
-        )
-    }
-    
-}
+                {
+                    loading &&
+                    <div>
+                        <h1>Cargando...</h1>
+                     </div>
+                }
+                {   !loading &&
+                    <div>
+                        <h4>Productossss</h4>
+                        <Row>
+                        {listadoProductos.map(listadoProducto=><Producto key={listadoProducto.id} nombre= {listadoProducto.data().name} precio={listadoProducto.data().price} id={listadoProducto.id}/>)}
+                        </Row>             
+                    </div>  
+                }    
+            </div>                      
+        
+    )
+            }    
+
 
 export default Productos

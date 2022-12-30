@@ -5,18 +5,10 @@ import Productos from "../Components/Productos";
 
 function Home(){
 
-    
-
         return(
-            <div>
-                <div>  
-                    
-                    
-                </div>
                 <div>
                     <Productos/>
                 </div>
-            </div>    
         )
     
 }
