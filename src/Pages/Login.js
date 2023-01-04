@@ -3,17 +3,19 @@ import firebase from "../Config/firebase"
 import {useForm} from "react-hook-form"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
- 
+
 
 function Login(){
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    
 
     const onSubmit= async(data)=>{
         
         try{
             const responseUser = await firebase.auth.signInWithEmailAndPassword(data.email, data.password)
             console.log("responseUser", responseUser )
+            
         }catch(e){
             console.log(e)
         }
@@ -35,7 +37,8 @@ function Login(){
                     {errors.contraseña && <span>Amigo this field is required</span>}
                 </Form.Group>
                
-                <Button variant="primary" type="submit">Ingresar</Button>{' '}
+                <Button variant="primary" type="submit">Ingresar no</Button>{' '}
+                
                 
             </Form>
             
