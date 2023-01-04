@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { getAllProductos } from "../Service/productosServices";
 import Producto from "./Producto";
 import Row from 'react-bootstrap/Row'
+import Loading from "./Loading";
 
 
 function Productos(){
@@ -26,28 +27,19 @@ function Productos(){
             
         }, []
     )
-
-  
+ 
+   
     return(
-            <div>  
-                {
-                    loading &&
-                    <div>
-                        <h1>Cargando...</h1>
-                     </div>
-                }
-                {   !loading &&
+            <Loading loading={loading}>
                     <div>
                         <h4>Productossss</h4>
                         <Row>
                         {listadoProductos.map(listadoProducto=><Producto key={listadoProducto.id} nombre= {listadoProducto.data().name} precio={listadoProducto.data().price} id={listadoProducto.id}/>)}
                         </Row>             
                     </div>  
-                }    
-            </div>                      
-        
+            </Loading>             
     )
-            }    
+    }    
 
 
 export default Productos
