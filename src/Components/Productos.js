@@ -3,6 +3,7 @@ import { getAllProductos } from "../Service/productosServices";
 import Producto from "./Producto";
 import Row from 'react-bootstrap/Row'
 import Loading from "./Loading";
+
  
 
 function Productos(){
@@ -21,6 +22,7 @@ function Productos(){
                 
             }catch(e){
                 console.log(e)
+                
             }    
         }
         request()
@@ -28,7 +30,6 @@ function Productos(){
         }, []
     )
  
-   
     return(
             <Loading loading={loading}>
                     <div>

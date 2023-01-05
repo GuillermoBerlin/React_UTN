@@ -6,15 +6,21 @@ import {
 import Menu from './Components/Menu';
 import Public from './Routes/Public';
 import Container from 'react-bootstrap/Container'
+import React, {useState} from 'react';
+import AuthProvider from './Context/AuthProvider';
 
 function App() {
+  
   return (
-    <Router>
-        <Menu/>
-        <Container>
-        <Public/>
-        </Container>
-    </Router>
+    <AuthProvider>
+      <Router>
+          <Menu />
+          <Container>
+          <Public/>
+          </Container>
+      </Router>
+    </AuthProvider>
+    
   );
 }
       

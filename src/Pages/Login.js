@@ -3,21 +3,33 @@ import firebase from "../Config/firebase"
 import {useForm} from "react-hook-form"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-
+import AlertCustom from "../Components/AlertCustom";
+import { loginMessage } from "../Utils/errorMessage";
 
 function Login(){
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    
+    const [alert, setAlert] = useState({variant: "", text:""})
 
     const onSubmit= async(data)=>{
         
         try{
             const responseUser = await firebase.auth.signInWithEmailAndPassword(data.email, data.password)
-            console.log("responseUser", responseUser )
+            if(responseUser.user.uid){
+                const userInfo = await firebase.db.collection("usuarios")
+                .where("userId", "==", responseUser.user.uid )
+                .get()
+                if(userInfo){
+                    const nombre = userInfo.docs[0].data().name
+                    setAlert({variant: "success", text:"Bienvenido " + nombre})
+                }
+                
+            }
+               
             
         }catch(e){
             console.log(e)
+            setAlert({variant:"danger", text:loginMessage[e.code]})
         }
         
     }
@@ -37,7 +49,8 @@ function Login(){
                     {errors.contraseña && <span>Amigo this field is required</span>}
                 </Form.Group>
                
-                <Button variant="primary" type="submit">Ingresar no</Button>{' '}
+                <Button variant="primary" type="submit">Ingresar </Button>{' '}
+                <AlertCustom {...alert} />
                 
                 
             </Form>
