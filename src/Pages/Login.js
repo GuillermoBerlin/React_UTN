@@ -1,15 +1,17 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import firebase from "../Config/firebase"
 import {useForm} from "react-hook-form"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import AlertCustom from "../Components/AlertCustom";
 import { loginMessage } from "../Utils/errorMessage";
+import AuthContext from "../Context/AuthContext";
 
 function Login(){
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [alert, setAlert] = useState({variant: "", text:""})
+    const context = useContext(AuthContext )
 
     const onSubmit= async(data)=>{
         
@@ -22,10 +24,11 @@ function Login(){
                 if(userInfo){
                     const nombre = userInfo.docs[0].data().name
                     setAlert({variant: "success", text:"Bienvenido " + nombre})
+                    context.loginUser()
                 }
                 
             }
-               
+                
             
         }catch(e){
             console.log(e)

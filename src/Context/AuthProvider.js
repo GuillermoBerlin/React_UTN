@@ -2,7 +2,9 @@ import React, {useState}  from "react";
 import AuthContext from "./AuthContext";
 
 function AuthProvider(props){
+    
     const [userLogin, setUserLogin] = useState(false)
+
     const loginUser = () =>{
         setUserLogin(true)
     } 
@@ -10,9 +12,9 @@ function AuthProvider(props){
         setUserLogin(false)
     }
     return(
-        <AuthContext.provider value={{userLogin, loginUser, logoutUser}}>
+        <AuthContext.Provider value={{userLogin, loginUser, logoutUser}}>
             {props.children}
-        </AuthContext.provider>
+        </AuthContext.Provider>
     )
 }
 export default AuthProvider
