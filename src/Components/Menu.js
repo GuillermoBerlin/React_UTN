@@ -5,13 +5,13 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import AuthContext from "../Context/AuthContext"
 
 function Menu(){
-
+ 
     return(
         <>
             <AuthContext.Consumer>
                 {
                     context=>
-                    
+
                     <Navbar bg="light" expand="lg">               
                     <Navbar.Brand href="#home">Almacen Tio Rolo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -28,7 +28,7 @@ function Menu(){
                             <>
                                 <NavDropdown title="Productos" id="basic-nav-dropdown">
                                     <NavDropdown.Item as={Link} to="/productos/alta">Alta</NavDropdown.Item>
-                                </NavDropdown>
+                                    </NavDropdown>
                                 <Nav.Link onClick={context.logoutUser}>Salir</Nav.Link>
                             </>
                         }    
