@@ -6,12 +6,14 @@ import Form from 'react-bootstrap/Form'
 import AlertCustom from "../Components/AlertCustom";
 import { loginMessage } from "../Utils/errorMessage";
 import AuthContext from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Login(){
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [alert, setAlert] = useState({variant: "", text:""})
     const context = useContext(AuthContext )
+    const navigate = useNavigate()
 
     const onSubmit= async(data)=>{
         
@@ -24,7 +26,8 @@ function Login(){
                 if(userInfo){
                     const nombre = userInfo.docs[0].data().name
                     setAlert({variant: "success", text:"Bienvenido " + nombre})
-                    context.loginUser()
+                    context.loginUser(userInfo.docs[0].data())
+                    navigate("/")
                 }
                 
             }

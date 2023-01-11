@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import AuthContext from "../Context/AuthContext"
+import context from "react-bootstrap/esm/AccordionContext"
 
 function Menu(){
  
@@ -34,9 +35,18 @@ function Menu(){
                         }    
                     </Nav>
                     </Navbar.Collapse>
-                
+
+                    {
+                        context.userLogin &&
+                        <div>Hola {context.userInfo.name} amigaso </div>
+                    }  
+
             </Navbar>
+            
+                          
+
             }
+            
             </AuthContext.Consumer>
         </>
     )
