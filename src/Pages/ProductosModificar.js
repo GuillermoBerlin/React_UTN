@@ -20,6 +20,7 @@ function ProductosModificar(){
                 setValue("name", response.data().name)
                 setValue("price", response.data().price)
                 setValue("description", response.data().description)
+                setValue("thumbnail", response.data().thumbnail);
                 
                 
             }catch(e){
@@ -64,6 +65,12 @@ function ProductosModificar(){
                     <Form.Label>Descripcion</Form.Label>
                     <Form.Control type="text" {...register("description", {required: true})} />
                     {errors.email && <span>Amigo this field is required</span>}
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>URL THumbnail</Form.Label>
+                    <Form.Control type="text" {...register("thumbnail", {required: true})} />
+                    {errors.thumbnail && <span>Amigo this field is required</span>}
                 </Form.Group>
                 
                

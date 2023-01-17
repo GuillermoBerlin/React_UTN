@@ -3,6 +3,7 @@ import Spinner from 'react-bootstrap/Spinner'
 function Loading(props){
  
     const {loading, children} = props
+    
     const styles = {
         spinner: {
             position: "fixed",

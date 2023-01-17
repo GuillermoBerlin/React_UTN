@@ -49,13 +49,14 @@ function Login(){
                     <Form.Control type="email" {...register("email", {required: true})} />
                     {errors.email && <span>Amigo this field is required</span>}
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control type="password" {...register("password", {required: true})} />
                     {errors.contraseña && <span>Amigo this field is required</span>}
                 </Form.Group>
                
-                <Button variant="primary" type="submit">Ingresar </Button>{' '}
+                <Button variant="secondary" type="submit">Ingresar </Button>{' '}
                 <AlertCustom {...alert} />
                 
                 

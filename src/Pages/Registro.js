@@ -53,7 +53,7 @@ function Registro(){
                     {errors.contraseña && <span>Amigo this field is required</span>}
                 </Form.Group>
                
-                <Button variant="primary" type="submit">Registrarme</Button>{' '}
+                <Button variant="secondary" type="submit">Registrarme</Button>{' '}
                 
             </Form>
             

@@ -16,7 +16,8 @@ function ProductosAlta(){
             .add({
                 name:data.name,
                 price:data.price,
-                description:data.description
+                description:data.description,
+                thumbnail: data.thumbnail,
             }) 
             console.log("document",document)
         }catch(e){
@@ -44,6 +45,12 @@ function ProductosAlta(){
                     <Form.Label>Descripcion</Form.Label>
                     <Form.Control type="text" {...register("description", {required: true})} />
                     {errors.email && <span>Amigo this field is required</span>}
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>URL Thumbnail</Form.Label>
+                    <Form.Control type="text" {...register("thumbnail", {required: true})} />
+                    {errors.thumbnail && <span>Amigo this field is required</span>}
                 </Form.Group>
                 
                

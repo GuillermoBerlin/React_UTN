@@ -12,14 +12,16 @@ import AuthProvider from './Context/AuthProvider';
 function App() {
   
   return (
-    <AuthProvider>
+    
       <Router>
-          <Menu />
-          <Container>
-          <Public/>
-          </Container>
+          <AuthProvider>
+            <Menu />
+            <Container>
+            <Public/>
+            </Container>
+          </AuthProvider>
       </Router>
-    </AuthProvider>
+    
     
   );
 }

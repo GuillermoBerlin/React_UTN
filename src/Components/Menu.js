@@ -6,15 +6,20 @@ import AuthContext from "../Context/AuthContext"
 import context from "react-bootstrap/esm/AccordionContext"
 
 function Menu(){
- 
+
+
+    
+    
     return(
         <>
             <AuthContext.Consumer>
                 {
                     context=>
 
-                    <Navbar bg="light" expand="lg">               
-                    <Navbar.Brand href="#home">Almacen Tio Rolo</Navbar.Brand>
+                    
+                    <Navbar bg="light" expand="lg" >
+                    <div className="container" >             
+                    <Navbar.Brand  href="#home">Almacen Tio Rolo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -41,6 +46,7 @@ function Menu(){
                         <div>Hola {context.userInfo.name} amigaso </div>
                     }  
 
+            </div>            
             </Navbar>
             
                           
