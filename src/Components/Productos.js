@@ -46,7 +46,7 @@ function Productos(){
                     <h4>Productos</h4>
                     
                     <Row>
-                    {listadoProductos.map(listadoProducto=><Producto key={listadoProducto.id} nombre= {listadoProducto.data().name} precio={listadoProducto.data().price} id={listadoProducto.id} thumbnail={listadoProducto.data().thumbnail}/>)}
+                    {listadoProductos.map(listadoProducto=><Producto key={listadoProducto.id} nombre= {listadoProducto.data().name} precio={listadoProducto.data().price} id={listadoProducto.id} thumbnail={listadoProducto.data().thumbnail} descripcion={listadoProducto.data().description}/>)}
                     </Row>     
                             
                 </div>  

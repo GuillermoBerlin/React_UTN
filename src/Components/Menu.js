@@ -19,7 +19,7 @@ function Menu(){
                     
                     <Navbar bg="light" expand="lg" >
                     <div className="container" >             
-                    <Navbar.Brand  href="#home">Almacen Tio Rolo</Navbar.Brand>
+                    <Nav.Link as={Link} to="/"><Navbar.Brand  href="#home">Onkel Rolo Lagerhaus</Navbar.Brand></Nav.Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
