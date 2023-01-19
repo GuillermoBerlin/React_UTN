@@ -20,7 +20,9 @@ function ProductosModificar(){
                 setValue("name", response.data().name)
                 setValue("price", response.data().price)
                 setValue("description", response.data().description)
-                setValue("thumbnail", response.data().thumbnail);
+                setValue("descriptionLong", response.data().descriptionLong)
+                setValue("thumbnail", response.data().thumbnail)
+                setValue("thumbnail2", response.data().thumbnail2)
                 
                 
             }catch(e){
@@ -49,28 +51,41 @@ function ProductosModificar(){
         <>
             <Button type="submit" variant="danger" onClick={handleDelete}>Eliminar</Button>
             <Form onSubmit={handleSubmit(onSubmit)}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                
+                <Form.Group className="mb-3">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control type="text" {...register("name", {required: true})} />
                     {errors.name && <span>Amigo this field is required</span>}
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                     <Form.Label>Precio</Form.Label>
                     <Form.Control type="text" {...register("price", {required: true})} />
                     {errors.apellido && <span>Amigo this field is required</span>}
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                     <Form.Label>Descripcion</Form.Label>
                     <Form.Control type="text" {...register("description", {required: true})} />
                     {errors.email && <span>Amigo this field is required</span>}
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
+                    <Form.Label>Descripcion larga</Form.Label>
+                    <Form.Control type="text" {...register("descriptionLong", {required: true})} />
+                    {errors.email && <span>Amigo this field is required</span>}
+                </Form.Group>
+
+                <Form.Group className="mb-3">
                     <Form.Label>URL THumbnail</Form.Label>
                     <Form.Control type="text" {...register("thumbnail", {required: true})} />
                     {errors.thumbnail && <span>Amigo this field is required</span>}
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label>URL THumbnail 2</Form.Label>
+                    <Form.Control type="text" {...register("thumbnail2", {required: true})} />
+                    {errors.thumbnail2 && <span>Amigo this field is required</span>}
                 </Form.Group>
                 
                

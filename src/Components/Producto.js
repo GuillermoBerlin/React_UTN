@@ -2,31 +2,40 @@
 import { Link } from "react-router-dom";
 import {Card, Button, Col} from 'react-bootstrap'
 import AuthContext from "../Context/AuthContext";
-
+import React, {useState} from "react";
 
 const styles = {
     img: {
-        width: "100%",
-        height: "100%",
+        objectFit: "contain",
+        minHeight: "200px",
+        maxHeight: "200px",
         
     },
-    
-
 }
+
 
 function Producto(props) {
    
-    const {nombre, precio,id, thumbnail, descripcion} = props
+    const {nombre, precio,id, thumbnail,thumbnail2, descripcion} = props
+    const [showedImage, setShowedImage] = useState(thumbnail)
         
+    function handleMouseEnter(e){
+        setShowedImage(thumbnail2)
+    }
+
+    function handleMouseLeave(e){
+        setShowedImage(thumbnail)
+    }
+
         return(
             <>  
             <AuthContext.Consumer>
                 {
                     context=>
                     <Col>
-                        <Card style={{ width: '18rem'}} className="border-0 m-4">
+                        <Card style={{ width: '18rem'}} className="border-0 border-bottom m-4">
                         
-                        <Link to={"/producto/"+id}><Card.Img className="text-center" variant="top" src={thumbnail} style={styles.img} /></Link>
+                        <Link to={"/producto/"+id}><Card.Img className="fluid text-center" variant="top" src={showedImage} style={styles.img} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/></Link>
                         
                         <Card.Body  >
                             <Card.Title >{nombre}</Card.Title>
