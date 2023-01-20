@@ -8,12 +8,10 @@ const styles = {
     mainImage: {
         objectFit: "contain",
         width: "100%",
-        minHeight: "200px",
-        maxHeight: "400px",
+        minHeight: "300px",
+        maxHeight: "500px",
         margin: "10px"
-
-     
-        
+      
     }
 
 

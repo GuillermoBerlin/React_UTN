@@ -17,7 +17,7 @@ function ProductosAlta(){
                 name:data.name,
                 price:data.price,
                 description:data.description,
-                description:data.descriptionLong,
+                descriptionLong:data.descriptionLong,
                 thumbnail: data.thumbnail,
                 thumbnail2: data.thumbnail2,
             }) 

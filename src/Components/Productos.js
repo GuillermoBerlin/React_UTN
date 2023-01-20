@@ -14,6 +14,7 @@ function Productos(){
     const [buscar, setBuscar] = useState()
     
     
+    
     useEffect(
         ()=>{
             const request = async ()=>{
@@ -37,14 +38,16 @@ function Productos(){
         setBuscar(value)
     }
  
+
+    // input goes in return //
+    // <input type="text" value={buscar} onChange={handleBuscar}></input> //
+
     return(
         <>
-        <input type="text" value={buscar} onChange={handleBuscar}></input> 
+        
 
         <Loading loading={loading}>
-                <div>                     
-                    <h4>Productos</h4>
-                    
+                <div>                                         
                     <Row>
                     {listadoProductos.map(listadoProducto=><Producto 
                         key={listadoProducto.id} 
