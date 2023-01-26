@@ -7,7 +7,7 @@ function Loading(props){
     const styles = {
         spinner: {
             position: "fixed",
-            top: "50%",
+            bottom: "100px",
             left: "50%"
         }
     }

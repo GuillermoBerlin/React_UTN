@@ -13,7 +13,7 @@ function CarouselComponent() {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} style={{marginBottom:"100px"}}>
+    <Carousel activeIndex={index} onSelect={handleSelect} style={{marginBottom:"80px"}}>
       <Carousel.Item>
         <img
           className="d-block w-100"
