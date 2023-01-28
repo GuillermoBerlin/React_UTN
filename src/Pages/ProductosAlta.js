@@ -6,10 +6,15 @@ import Form from 'react-bootstrap/Form'
 
 
 function ProductosAlta(){
+    
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    
+
     const onSubmit= async(data)=>{
+
+        const categoryRef = firebase.firestore().collection("categories").doc(data.category);
         
         try{
             const document = await firebase.firestore().collection("productos")
@@ -20,6 +25,7 @@ function ProductosAlta(){
                 descriptionLong:data.descriptionLong,
                 thumbnail: data.thumbnail,
                 thumbnail2: data.thumbnail2,
+                category: categoryRef
             }) 
             console.log("document",document)
         }catch(e){
@@ -65,6 +71,17 @@ function ProductosAlta(){
                     <Form.Label>URL Thumbnail 2</Form.Label>
                     <Form.Control type="text" {...register("thumbnail2", {required: true})} />
                     {errors.thumbnail2 && <span>Amigo this field is required</span>}
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label>Categoria</Form.Label>
+                    <Form.Control as="select" {...register("category", {required: true})}>
+                      <option value="">Selecciona una categoria</option>
+                      <option value="chairs">Chairs</option>
+                      <option value="tables">Tables</option>
+                      <option value="desks">Desks</option>
+                    </Form.Control>
+                    {errors.category && <span>Amigo this field is required</span>}
                 </Form.Group>
 
 

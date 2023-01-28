@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import {Card, Button, Col} from 'react-bootstrap'
 import AuthContext from "../Context/AuthContext";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 const styles = {
     img: {
@@ -18,13 +18,18 @@ function Producto(props) {
    
     const {nombre, precio,id, thumbnail,thumbnail2, descripcion} = props
     const [showedImage, setShowedImage] = useState(thumbnail)
-        
-    function handleMouseEnter(e){
-        setShowedImage(thumbnail2)
-    }
 
-    function handleMouseLeave(e){
-        setShowedImage(thumbnail)
+    
+    useEffect(() => {
+        setShowedImage(thumbnail);
+      }, [thumbnail])
+
+    const handleMouseEnter = e => {
+        setShowedImage(thumbnail2);
+    }
+    
+    const handleMouseLeave = e => {
+        setShowedImage(thumbnail);
     }
 
         return(

@@ -3,7 +3,7 @@ import { getByIdProductos } from "../Service/productosServices"
 import { useState, useEffect } from "react"
 import Loading from "../Components/Loading"
 import {Col, Row} from 'react-bootstrap/'
-import { Carousel } from 'react-bootstrap';
+import CarouselDetalle from "../Components/CarouselDetalle"
 
 const styles = {
     mainImage: {
@@ -46,22 +46,7 @@ function Detalle(){
                         <img style={styles.mainImage} src={producto.thumbnail2}/>
                     </Col>
 
-                    <Carousel className="d-sm-block d-md-none d-lg-none">
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src={producto.thumbnail}
-                            alt="First slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src={producto.thumbnail2}
-                            alt="Second slide"
-                            />
-                        </Carousel.Item>
-                    </Carousel>
+                    <CarouselDetalle thumbnail={producto.thumbnail} thumbnail2={producto.thumbnail2}/>
 
                     <Col style={{marginTop: "25px"}}>           
                         <h2>{producto.name}</h2>

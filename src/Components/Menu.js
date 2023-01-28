@@ -3,12 +3,9 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import AuthContext from "../Context/AuthContext"
-import context from "react-bootstrap/esm/AccordionContext"
+import Container from 'react-bootstrap/Container'
 
 function Menu(){
-
-
-    
     
     return(
         <>
@@ -36,15 +33,16 @@ function Menu(){
                                     <NavDropdown.Item as={Link} to="/productos/alta">Alta</NavDropdown.Item>
                                     </NavDropdown>
                                 <Nav.Link onClick={context.logoutUser}>Salir</Nav.Link>
+                                
+                                <Navbar.Brand>Hola {context.userInfo.name} amigaso </Navbar.Brand>
+                                
                             </>
-                        }    
+                        }
+                        
                     </Nav>
                     </Navbar.Collapse>
 
-                    {
-                        context.userLogin &&
-                        <div>Hola {context.userInfo.name} amigaso </div>
-                    }  
+                   
 
             </div>            
             </Navbar>

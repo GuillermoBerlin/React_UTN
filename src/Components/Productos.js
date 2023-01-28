@@ -33,14 +33,9 @@ function Productos(){
         }, [buscar]
     )
 
-    const handleBuscar=(event)=>{
-        const value = event.target.value
-        setBuscar(value)
-    }
+   
  
 
-    // input goes in return //
-    // <input type="text" value={buscar} onChange={handleBuscar}></input> //
 
     return(
         <>
@@ -58,6 +53,7 @@ function Productos(){
                         thumbnail2={listadoProducto.data().thumbnail2}  
                         descripcion={listadoProducto.data().description}
                         descripcionLarga={listadoProducto.data().descriptionLong}
+                        
                     />)}
                     </Row>     
                             
