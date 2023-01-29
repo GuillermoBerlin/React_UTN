@@ -37,8 +37,8 @@ function Producto(props) {
             <AuthContext.Consumer>
                 {
                     context=>
-                    <Col>
-                        <Card style={{ width: '18rem'}} className="border-0 border-bottom m-4">
+                    <Col >
+                        <Card className="border-0 border-bottom m-4">
                         
                         <Link to={"/producto/"+id}><Card.Img className="fluid text-center" variant="top" src={showedImage} style={styles.img} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/></Link>
                         

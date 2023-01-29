@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import AuthContext from "../Context/AuthContext"
-import Container from 'react-bootstrap/Container'
+
 
 function Menu(){
     
@@ -14,7 +14,7 @@ function Menu(){
                     context=>
 
                     
-                    <Navbar bg="light" expand="lg" >
+                    <Navbar bg="light" expand="lg" shadow-sm >
                     <div className="container" >             
                     <Nav.Link as={Link} to="/"><Navbar.Brand  href="#home">Onkel Rolo Lagerhaus</Navbar.Brand></Nav.Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,18 +23,18 @@ function Menu(){
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         {!context.userLogin &&
                             <>
-                                <Nav.Link as={Link} to="/alta">Registro</Nav.Link>
+                                <Nav.Link as={Link} to="/alta">Register</Nav.Link>
                                 <Nav.Link as={Link} to="/ingresar">Login</Nav.Link>
                             </>
                         }        
                         {context.userLogin && 
                             <>
-                                <NavDropdown title="Productos" id="basic-nav-dropdown">
+                                <NavDropdown title="Products" id="basic-nav-dropdown">
                                     <NavDropdown.Item as={Link} to="/productos/alta">Alta</NavDropdown.Item>
                                     </NavDropdown>
-                                <Nav.Link onClick={context.logoutUser}>Salir</Nav.Link>
+                                <Nav.Link onClick={context.logoutUser}>Log Out</Nav.Link>
                                 
-                                <Navbar.Brand>Hola {context.userInfo.name} amigaso </Navbar.Brand>
+                                
                                 
                             </>
                         }

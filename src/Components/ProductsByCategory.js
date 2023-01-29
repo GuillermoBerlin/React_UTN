@@ -3,7 +3,7 @@ import firebase from '../Config/firebase';
 import Producto from "./Producto"
 
 import Loading from "./Loading";
-import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap';
+import { Row, Button, ButtonGroup } from 'react-bootstrap';
 
 
 function ProductsByCategory() {
@@ -30,8 +30,8 @@ function ProductsByCategory() {
   return (
     <>
       
-      <Row className="justify-content-center">
-      <ButtonGroup>
+      <Row>
+      <ButtonGroup className="mb-5 mt-5">
       <Button variant="outline-secondary" onClick={() => setCategory('desks')}>Desks</Button>
       <Button variant="outline-secondary" onClick={() => setCategory('tables')}>Tables</Button>
       <Button variant="outline-secondary" onClick={() => setCategory('chairs')}>Chairs</Button>
@@ -42,7 +42,7 @@ function ProductsByCategory() {
 
       <Loading loading={loading}>
                 <div>                            
-                    <Row>
+                    <Row >
                     {products.map(listadoProducto=><Producto 
                         key={listadoProducto.id} 
                         nombre= {listadoProducto.name} 

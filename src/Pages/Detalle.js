@@ -58,6 +58,7 @@ function Detalle(){
                     </Col>
                 </Row>
                 
+                
         </Loading>
     )
 }
