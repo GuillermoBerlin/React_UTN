@@ -6,7 +6,7 @@ export async function getAllProductos(buscar){
     .get()
     return querySnapshot.docs
 }
-
+ 
 export async function getByIdProductos(id){
     return await firebase.db.doc("productos/"+id).get()
 }

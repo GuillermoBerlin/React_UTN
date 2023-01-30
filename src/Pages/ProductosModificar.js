@@ -14,7 +14,6 @@ function ProductosModificar(){
     const {id} = useParams()
     const navigate = useNavigate()
     
-
     useEffect(
         ()=>{
             const request = async ()=>{
@@ -27,9 +26,7 @@ function ProductosModificar(){
                 setValue("descriptionLong", response.data().descriptionLong)
                 setValue("thumbnail", response.data().thumbnail)
                 setValue("thumbnail2", response.data().thumbnail2)
-                
-                
-                
+                               
             }catch(e){
                 console.log(e)
             }    
@@ -54,8 +51,7 @@ function ProductosModificar(){
     }
       
     return(
-        <>
-            <Button type="submit" variant="danger" onClick={handleDelete}>Eliminar</Button>
+        <> 
             <Form onSubmit={handleSubmit(onSubmit)}>
                 
                 <Form.Group className="mb-3">
@@ -93,14 +89,10 @@ function ProductosModificar(){
                     <Form.Control type="text" {...register("thumbnail2", {required: true})} />
                     {errors.thumbnail2 && <span>Amigo this field is required</span>}
                 </Form.Group>
-
-               
-                
-               
+       
                 <Button variant="primary" type="submit">Guardar</Button>{' '}
-                
-            </Form>
-            
+                <Button type="submit" variant="danger" onClick={handleDelete}>Eliminar</Button>
+            </Form>         
         </>
     )
 }

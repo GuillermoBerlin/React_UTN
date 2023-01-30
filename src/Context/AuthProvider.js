@@ -6,7 +6,7 @@ function AuthProvider(props){
     
     const [userLogin, setUserLogin] = useState(localStorage.getItem("login" || false))
     const [userInfo, setUserInfo] = useState(JSON.parse(localStorage.getItem("userInfo")))
-    const navigate = useNavigate()
+    const navigate = useNavigate()    
 
     const loginUser = (userInfo) =>{
         setUserLogin(true)
@@ -24,5 +24,5 @@ function AuthProvider(props){
             {props.children}
         </AuthContext.Provider>
     )
-}
+} 
 export default AuthProvider

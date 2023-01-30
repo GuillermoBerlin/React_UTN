@@ -8,12 +8,12 @@ import Form from 'react-bootstrap/Form'
 function Registro(){
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+ 
     const onSubmit= async(data)=>{
         
         try{
             const responseUser = await firebase.auth.createUserWithEmailAndPassword(data.email, data.password)
-            console.log("responseUser", responseUser)
+            console.log("responseUser", responseUser) 
             if(responseUser.user.uid){
                 const document = await firebase.db.collection("usuarios")
                 .add({
