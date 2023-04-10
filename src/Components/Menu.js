@@ -14,9 +14,9 @@ function Menu(){
                     context=>
 
                     
-                    <Navbar bg="light" expand="lg" shadow-sm >
+                    <Navbar bg="light" expand="lg" shadow-sm="true" >
                     <div className="container" >             
-                    <Nav.Link as={Link} to="/"><Navbar.Brand  href="#home">Onkel Rolo Lagerhaus</Navbar.Brand></Nav.Link>
+                    <Navbar.Brand  as={Link} to="/">Onkel Rolo Lagerhaus</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

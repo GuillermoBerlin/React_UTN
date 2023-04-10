@@ -11,8 +11,8 @@ function Productos(){
 
     const [listadoProductos, setListadoProductos]=useState([])
     const [loading, setLoading]=useState(true)
-    const [buscar, setBuscar] = useState()
-    
+   // const [buscar, setBuscar] = useState()
+///TODO: add search
     
     
     useEffect(
@@ -30,7 +30,7 @@ function Productos(){
         }
         request()
             
-        }, [buscar]
+        }, [/*buscar*/]
     )
 
    
@@ -44,19 +44,17 @@ function Productos(){
         <Loading loading={loading}>
                 <div>                                         
                     <Row>
-                    {listadoProductos.map(listadoProducto=><Producto 
-                        key={listadoProducto.id} 
-                        nombre= {listadoProducto.data().name} 
-                        precio={listadoProducto.data().price} 
-                        id={listadoProducto.id} 
-                        thumbnail={listadoProducto.data().thumbnail}
-                        thumbnail2={listadoProducto.data().thumbnail2}  
-                        descripcion={listadoProducto.data().description}
-                        descripcionLarga={listadoProducto.data().descriptionLong}
-                        
+                        {listadoProductos.map(listadoProducto=><Producto 
+                            key={listadoProducto.id} 
+                            nombre= {listadoProducto.data().name} 
+                            precio={listadoProducto.data().price} 
+                            id={listadoProducto.id} 
+                            thumbnail={listadoProducto.data().thumbnail}
+                            thumbnail2={listadoProducto.data().thumbnail2}  
+                            descripcion={listadoProducto.data().description}
+                            descripcionLarga={listadoProducto.data().descriptionLong}
                     />)}
-                    </Row>     
-                            
+                    </Row>             
                 </div>  
             </Loading>    
         </>             

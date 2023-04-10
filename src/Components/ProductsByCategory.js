@@ -30,7 +30,7 @@ function ProductsByCategory() {
   return (
     <>
       
-      <Row>
+      <Row >
       <ButtonGroup className="mb-5 mt-5">
       <Button variant="outline-secondary" onClick={() => setCategory('desks')}>Desks</Button>
       <Button variant="outline-secondary" onClick={() => setCategory('tables')}>Tables</Button>

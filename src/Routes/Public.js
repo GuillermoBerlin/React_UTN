@@ -14,7 +14,7 @@ import AuthContext from '../Context/AuthContext';
 
 function Public() {
   return (
-      <AuthContext>
+      <AuthContext.Consumer>
         {
             context=>
               <Routes>
@@ -36,7 +36,7 @@ function Public() {
                 <Route path="/producto/:id" element={<Detalle/>} />
               </Routes>
         }
-      </AuthContext>  
+      </AuthContext.Consumer>  
     
   );
 }
